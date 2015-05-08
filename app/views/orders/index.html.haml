@@ -1,0 +1,22 @@
+.mainContent.clearfix
+  .page-header.productWrap
+    %h1
+      %span.label.label-info
+        Orders
+  .container
+    %table.table.table-bordered
+      %tr
+        %th.info
+          Quantity
+        %th.info
+          Discount
+        %th.info
+          Total
+      - @orders.each do |order|
+        %tr
+          %td.info
+            = order.quantity
+          %td.info
+            = humanized_money_with_symbol order.discount
+          %td.info
+            = humanized_money_with_symbol order.total_amount

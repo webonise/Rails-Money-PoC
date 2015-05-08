@@ -1,0 +1,34 @@
+.mainContent.clearfix
+  .page-header.productWrap
+    %h1
+      %span.label.label-info
+        Products
+  .container
+    %ul.nav.nav-pills
+      %li.presentation
+        = link_to 'Create Product', new_product_path
+      %li.presentation
+        = link_to 'Currency Convertor', show_convertor_products_path
+    %table.table.table-bordered
+      %tr
+        %th.info
+          Name
+        %th.info
+          Price
+        %th.info{colspan: '3'}
+          Description
+      - @products.each do |product|
+        %tr
+          %td.info
+            = product.name
+          %td.info
+            = humanized_money_with_symbol product.show_price
+          %td.info
+            = product.discription
+          %td.info
+            = link_to 'Create Order', new_product_order_path(product)
+          %td.info
+            = link_to 'Show Orders', product_orders_path(product)
+
+
+

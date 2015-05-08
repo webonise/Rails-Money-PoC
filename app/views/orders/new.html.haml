@@ -1,0 +1,22 @@
+.mainContent.clearfix
+  .container
+    .row
+      .span6.offset3{ role: 'main' }
+        %h3.control-label.pager
+          Create Order
+        = form_for [@product, @order], html: { class: 'form-horizontal' } do |f|
+          .control-group
+            %label{ for: 'quantity', class: 'control-label' } Quantity
+            .controls
+              = f.text_field :quantity, id: 'name', placeholder: 'Quantity'
+          .control-group
+            %label{ for: 'discount', class: 'control-label' } Discount
+            .controls
+              = f.text_field :discount_cents, id: 'price', placeholder: 'Discount'
+          .control-group
+            .controls
+              = f.submit 'Create Oder', class: 'btn btn-primary'
+              = link_to 'Back', products_path, class: 'btn btn-primary'
+
+
+

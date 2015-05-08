@@ -1,0 +1,21 @@
+.mainContent.clearfix
+  .container
+    .row
+      .span4.offset4.converterWrap
+        %h3 Convertor
+        .control-group
+          .controls.clearfix
+            = select_tag 'convert_from', options_for_select([ 'USD', 'EUR', 'CAD' ], 'USD'), class: 'pull-right span1'
+            = text_field_tag 'amount'
+
+        .control-group.clearfix
+          .controls
+            = submit_tag 'Convert', class: 'btn btn-info convert_currency'
+        .control-group
+          .controls
+            = select_tag 'convert_to', options_for_select([ 'USD', 'EUR', 'CAD' ], 'EUR'),
+              class: 'pull-right span1'
+            = text_field_tag 'showCurrency', '', disabled: true
+        .control-group
+          .controls
+            = link_to 'Back', products_path, class: 'btn btn-primary'

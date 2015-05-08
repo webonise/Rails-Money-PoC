@@ -1,0 +1,23 @@
+.mainContent.clearfix
+  .container
+    .row
+      .span6.offset3{ role: 'main' }
+        %h3.control-label.pager
+          Add Product
+        = form_for @product, html: { class: 'form-horizontal' } do |f|
+          .control-group
+            %label{ for: 'name', class: 'control-label' } Name
+            .controls
+              = f.text_field :name, id: 'name', placeholder: 'Name'
+          .control-group
+            %label{ for: 'price', class: 'control-label' } Price
+            .controls
+              = f.text_field :price_cents, id: 'price', placeholder: 'Price'
+          .control-group
+            %label{ for: 'description', class: 'control-label' } Description
+            .controls
+              = f.text_area :discription, cols: '80', rows: '5', id: 'description', placeholder: 'description'
+          .control-group
+            .controls
+              = f.submit 'Add Product', class: 'btn btn-primary'
+              = link_to 'Back', products_path, class: 'btn btn-primary'
