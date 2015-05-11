@@ -49,3 +49,6 @@ body {
 .mainContent h1, .mainContent h2, .mainContent h3, label {
   color: #fff;
 }
+#convert_from,#convert_to{
+  width: 70px;
+}
